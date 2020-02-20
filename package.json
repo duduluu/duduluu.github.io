@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "duduluu.github.io",
+  "license": "MIT",
+  "author": "duduluu <duduluu@outlook.com>",
+  "repository": "git@github.com:duduluu/duduluu.github.io.git",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build src/index.html",
+    "dev": "parcel serve src/index.html --open -p 9933",
+    "preinstall": "node -e \"!process.env.npm_config_user_agent.startsWith('pnpm/') && !console.log('Use \\`pnpm install\\` to install dependencies in this repository\\n') && process.exit(1)\"",
+    "parcel": "parcel",
+    "test": "node -p \"process.env.npm_package_version\"",
+    "ts": "ts-node -r tsconfig-paths/register -P ./tsconfig.scripts.json",
+    "prettier": "prettier --write"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.4",
+    "@void-aurora/toolkit": "^0.9.7",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.25.0",
+    "ts-node": "^8.6.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.7.5"
+  },
+  "engines": {
+    "node": ">=12",
+    "pnpm": ">=4"
+  }
+}

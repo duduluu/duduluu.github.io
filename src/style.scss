@@ -1,0 +1,250 @@
+@use 'sass:color';
+
+$gap-base: 4;
+$round-radius-base: 2;
+
+$color-background: #f7f4e3;
+$color-foreground: #202327;
+$color-line: #bdb8a5;
+
+$color-blond: #ac8367;
+$color-blond-light: #d5c1b3;
+
+$color-blue: #5e99b0;
+$color-blue-light: #aeccd7;
+
+$color-red: #d55140;
+$color-red-light: #eaa89f;
+
+$color-wheat: #aaa04d;
+$color-wheat-light: #d4cfa6;
+
+$font-size-base: 14;
+$line-height-base: 20 / 14;
+
+$paragraph-font-size: 14;
+$heading-font-size-step: 2;
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  scroll-behavior: smooth;
+
+  font-size: $font-size-base * 1px;
+  line-height: $line-height-base;
+
+  color: $color-foreground;
+  background-color: $color-background;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+p {
+  font-size: $paragraph-font-size * 1px;
+  padding: ($gap-base * 2px) 0;
+}
+
+// heading 1-6
+@for $level from 6 through 1 {
+  h#{$level} {
+    $font-size: (7 - $level) * $heading-font-size-step + $paragraph-font-size;
+    font-size: $font-size * 1px;
+    padding: ($gap-base * 2px) 0;
+  }
+}
+
+a {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  &:hover {
+    color: $color-blond;
+    text-decoration: underline;
+  }
+}
+
+hr {
+  flex: 1 0 100%;
+  height: 1px;
+  width: 100%;
+  border: none;
+
+  margin: ($gap-base * 2px) 0;
+  padding: 0;
+
+  background-color: $color-line;
+  opacity: 0.65;
+}
+.is-secondary {
+  opacity: 0.3;
+}
+
+// ======== basic ========
+
+.icon {
+  flex: none;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: $line-height-base * 1em;
+
+  fill: currentColor;
+
+  &.is-marker {
+    margin-right: $gap-base * 1px;
+  }
+}
+
+.separator {
+  display: inline;
+  line-height: inherit;
+  margin: 0 ($gap-base * 2px);
+}
+
+// === info list ====
+.info-list {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: ($gap-base * 2px) 0;
+  margin: ($gap-base * -1px) 0;
+
+  &.is-indent {
+    padding-left: $gap-base * 4px;
+  }
+
+  .info-list_item {
+    flex: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+    padding: ($gap-base * 1px) 0;
+  }
+}
+
+.marker {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  padding: 0;
+  margin: 0;
+}
+.marker_item {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  padding: ($gap-base * 1px) 0;
+  margin: 0 ($gap-base * 3px) 0 0;
+}
+.marker_icon {
+  margin-right: $gap-base * 0.5px;
+}
+
+// ======== layout ========
+
+.main,
+.header,
+.footer {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+}
+
+.main {
+  min-height: calc(100vh - 32px * 2);
+  padding: ($gap-base * 12px) 0;
+}
+
+.header,
+.footer {
+  padding: ($gap-base * 1px) 0;
+  background-color: $color-foreground;
+}
+
+.header {
+  height: 50px;
+  color: color.scale($color: $color-wheat-light, $alpha: -10%);
+}
+
+.footer {
+  flex-direction: column;
+  height: 120px;
+  color: color.scale($color: $color-wheat-light, $alpha: -40%);
+}
+
+.content {
+  flex: 1 0 100%;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 ($gap-base * 4px);
+}
+
+.section {
+  padding: ($gap-base * 4px) 0;
+}
+
+// ======== content ========
+
+.portrait {
+  width: auto;
+  height: auto;
+  max-height: 250px;
+  border-radius: $round-radius-base * 1px;
+}
+
+.title {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+
+  &:hover {
+    .title_email-icon {
+      opacity: 1;
+    }
+  }
+}
