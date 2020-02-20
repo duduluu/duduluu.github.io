@@ -32,6 +32,7 @@ const techStack: [string, string][][] = [
       'Flutter',
       'https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@v10.0.0/icons/file_type_flutter.svg',
     ],
+    ['Electron', 'https://github.githubassets.com/images/icons/emoji/electron.png'],
   ],
   [
     [
@@ -55,16 +56,20 @@ const techStack: [string, string][][] = [
       'https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@v10.0.0/icons/file_type_sass.svg',
     ],
     [
-      'Docker',
-      'https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@v10.0.0/icons/file_type_docker.svg',
-    ],
-    [
       'Test',
       'https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@v10.0.0/icons/folder_type_test.svg',
     ],
     [
       'CI',
       'https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@v10.0.0/icons/folder_type_tools.svg',
+    ],
+    [
+      'Docker',
+      'https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@v10.0.0/icons/file_type_docker.svg',
+    ],
+    [
+      'K8s',
+      'https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@v10.0.0/icons/folder_type_kubernetes.svg',
     ],
   ],
 ];
@@ -74,7 +79,7 @@ const items = techStack
     item
       .map(
         ([name, img]) =>
-          `<li class="marker_item"><img class="icon marker_icon" src="${img}" />${name}</li>`,
+          `<li class="marker_item"><img class="marker_icon" src="${img}" />${name}</li>`,
       )
       .join('\n'),
   )
