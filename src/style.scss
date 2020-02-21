@@ -45,14 +45,13 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   scroll-behavior: smooth;
 
   font-size: $font-size-base * 1px;
   line-height: $line-height-base;
-
-  color: $color-foreground;
-  background-color: $color-background;
+  color: $color-background;
+  background-color: $color-foreground;
 }
 
 h1,
@@ -94,14 +93,13 @@ a {
 
 hr {
   flex: 1 0 100%;
-  height: 1px;
+  height: 0;
   width: 100%;
-  border: none;
 
   margin: ($gap-base * 2px) 0;
   padding: 0;
 
-  background-color: $color-line;
+  border: 1px solid $color-line;
   opacity: 0.65;
 }
 .is-secondary {
@@ -217,11 +215,14 @@ hr {
   align-items: center;
   align-content: center;
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .main {
-  min-height: calc(100vh - 32px * 2);
-  padding: ($gap-base * 12px) 0;
+  padding: ($gap-base * 4px) 0;
+  color: $color-foreground;
+  background-color: $color-background;
 }
 
 .header,
@@ -236,8 +237,9 @@ hr {
 }
 
 .footer {
-  flex-direction: column;
+  flex-flow: column nowrap;
   height: 120px;
+  padding: ($gap-base * 4px) 0;
   color: color.scale($color: $color-wheat-light, $alpha: -40%);
 }
 
@@ -245,7 +247,7 @@ hr {
   flex: 1 0 100%;
   width: 100%;
   max-width: 1200px;
-  padding: 0 ($gap-base * 4px);
+  padding: 0 ($gap-base * 8px);
 }
 
 .section {
