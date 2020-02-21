@@ -20,7 +20,7 @@ $color-wheat: #aaa04d;
 $color-wheat-light: #d4cfa6;
 
 $font-size-base: 14;
-$line-height-base: 20 / 14;
+$line-height-base: 21 / 14;
 
 $paragraph-font-size: 14;
 $heading-font-size-step: 2;
@@ -131,7 +131,11 @@ hr {
 }
 
 // === info list ====
+#tech-stack {
+  padding: ($gap-base * 2px) 0;
+}
 .info-list {
+  position: relative;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
@@ -145,6 +149,7 @@ hr {
   }
 
   .info-list_item {
+    position: relative;
     flex: none;
     display: flex;
     flex-flow: row wrap;
@@ -154,6 +159,22 @@ hr {
     margin: 0;
     padding: ($gap-base * 1px) 0;
   }
+
+  &.is-order {
+    counter-reset: listindex;
+    .info-list_item {
+      counter-increment: listindex;
+      &::before {
+        content: counter(listindex) '.';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: ($gap-base * 1px) 0;
+      }
+      padding-left: $gap-base * 4px;
+    }
+  }
 }
 
 .marker {
@@ -162,8 +183,8 @@ hr {
   justify-content: flex-start;
   align-items: center;
   align-content: center;
-  padding: 0;
-  margin: 0;
+  padding: ($gap-base * 2px) 0;
+  margin: ($gap-base * -1px) 0;
 }
 .marker_item {
   display: inline-flex;
