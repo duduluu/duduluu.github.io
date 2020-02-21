@@ -5,7 +5,7 @@ const techStack: [string, string][][] = [
       'https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@v10.0.0/icons/file_type_sln.svg',
     ],
     [
-      'C#',
+      'CSharp',
       'https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@v10.0.0/icons/file_type_csharp.svg',
     ],
     [
